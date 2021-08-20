@@ -1,8 +1,11 @@
 FROM ubuntu:latest
 
 # Download/Install Foundry Licensing Tools
-RUN apt-get update && \
-    DEBIAN_FRONTEND=noninteractive apt-get -qq install wget apt-utils -y
+ARG DEBIAN_FRONTEND=noninteractive
+ENV TZ=UTC
+RUN apt-get update
+RUN apt-get install -y tzdata
+RUN apt-get -qq install wget apt-utils -y
 
 RUN wget https://thefoundry.s3.amazonaws.com/products/licensing/releases/8.1.6/FoundryLicensingUtility_8.1.6.deb
 RUN apt-get install ./FoundryLicensingUtility_8.1.6.deb -y
