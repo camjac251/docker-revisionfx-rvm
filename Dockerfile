@@ -7,18 +7,26 @@ RUN apt-get update
 RUN apt-get install -y tzdata
 RUN apt-get -qq install wget apt-utils -y
 
-RUN wget https://thefoundry.s3.amazonaws.com/products/licensing/releases/8.1.6/FoundryLicensingUtility_8.1.6.deb
-RUN apt-get install ./FoundryLicensingUtility_8.1.6.deb -y
-RUN rm FoundryLicensingUtility_8.1.6.deb
+RUN wget https://thefoundry.s3.amazonaws.com/tools/FLT/7.3v2/FLT7.3v2-linux-x86-release-64.tgz
+RUN tar xzf FLT7.3v2-linux-x86-release-64.tgz
+RUN rm -f FLT7.3v2-linux-x86-release-64.tgz
+RUN cd /FLT_7.3v2_linux-x86-release-64RH/ && echo yes | /bin/sh install.sh
+
+# Update Reprise to latest version
+RUN wget https://www.reprisesoftware.com/license_admin_kits/x64_l1.admin.tar.gz
+RUN tar xvf x64_l1.admin.tar.gz
+RUN rm -f x64_l1.admin.tar.gz
+RUN cp -f /x64_l1.admin/rlm /usr/local/foundry/LicensingTools7.3/bin/RLM/rlm.foundry
+RUN rm -rf /x64_l1.admin/
 
 VOLUME /opt/rlm/licenses
 
 # rlm server
-EXPOSE 4101
-# RLM Web Server (admin gui)
-EXPOSE 4102
-# isv server
 EXPOSE 5053
+# admin gui
+EXPOSE 5054
+# isv server
+EXPOSE 4101
 
 # Add startup script
 COPY ./start.sh /opt/start.sh
