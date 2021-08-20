@@ -4,8 +4,7 @@ FROM ubuntu:latest
 ARG DEBIAN_FRONTEND=noninteractive
 ENV TZ=UTC
 RUN apt-get update
-RUN apt-get install -y tzdata
-RUN apt-get -qq install wget apt-utils -y
+RUN apt-get install -qqy wget apt-utils tzdata libidn11
 
 RUN wget https://thefoundry.s3.amazonaws.com/tools/FLT/7.3v2/FLT7.3v2-linux-x86-release-64.tgz
 RUN tar xzf FLT7.3v2-linux-x86-release-64.tgz
