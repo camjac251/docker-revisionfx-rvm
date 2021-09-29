@@ -7,7 +7,7 @@ RUN apt-get update
 RUN apt-get install -qqy wget apt-utils tzdata libidn11
 
 RUN wget https://thefoundry.s3.amazonaws.com/products/licensing/releases/8.1.3/FoundryLicensingUtility_8.1.3.deb
-RUN apt-get install ./FoundryLicensingUtility_8.1.3.deb -y
+RUN apt-get install --no-install-recommends ./FoundryLicensingUtility_8.1.3.deb -y
 RUN rm FoundryLicensingUtility_8.1.3.deb
 
 VOLUME /opt/rlm/licenses
