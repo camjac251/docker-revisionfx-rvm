@@ -15,4 +15,4 @@ echo "Y" | /usr/local/foundry/LicensingTools7.3/FoundryLicenseUtility -d
 
 # Run the license server directly with the copied license file.
 
-#echo "Y" | /usr/local/foundry/LicensingTools7.3/bin/RLM/rlm.foundry -iai -c /opt/foundry_float.lic
+echo "Y" | /usr/local/foundry/LicensingTools7.3/bin/RLM/rlm.foundry -iai -c /opt/foundry_float.lic
