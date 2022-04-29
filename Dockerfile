@@ -1,4 +1,4 @@
-FROM ubuntu:latest
+FROM ubuntu:20.04
 
 # Download/Install Foundry Licensing Tools
 ARG DEBIAN_FRONTEND=noninteractive
