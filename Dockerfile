@@ -14,7 +14,7 @@ RUN ./RVLFloatLicenseSoftware-*-linux-x64-installer.run --unattendedmodeui minim
 
 VOLUME /usr/local/revision/floatinglicenses/Licenses
 
-# rvl server
+# RVL server
 EXPOSE 9412
 
 # Add startup script
