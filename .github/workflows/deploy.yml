@@ -23,4 +23,4 @@ jobs:
         with:
           context: .
           push: true
-          tags: camjac251/docker-foundry-rlm:latest
+          tags: camjac251/docker-revisionfx-rvl:latest
